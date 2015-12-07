@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forever</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/icon.jpg">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/jquery-aniview-master/jquery.aniview.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.0/semantic.min.js"></script>
+  <script src="js/control.js"></script>
+
+  
+</head>
+
+<body>
+  <div class="ui top sidebar massive inverted borderless five item labeled icon compact menu">
+    <a id='mit1' class="item">
+      <i class="yellow home icon"></i>
+      Home
+    </a>
+    <a id='mit2' class="item">
+      <i class="blue user icon"></i>
+      Self Introduction
+    </a>
+    <a id='mit3' class="item">
+      <i class="green photo icon"></i>
+      Photo
+    </a>
+    <a id='mit4' class="item">
+      <i class="red video camera icon"></i>
+      My Story
+    </a>
+    <a id='mit5' class="item">
+      <i class="brown mail icon"></i>
+      Contact Me
+    </a>
+  </div>
+  <div class="pusher">
+    <i id='mbutton' class=" large yellow align justify icon"></i>
+    <i id='gotopbutton' class=" big pink arrow circle up icon"></i>
+    <!-- Home contain -->
+    <div id="home"></div>
+
+    <!-- self-introduction contain -->
+    <div id="selfIntroduction" class="section">
+      <div class="space"></div>
+      <div class="ui stackable three column grid container">
+        <!-- my photo card -->
+        <div id='myphoto' class="column">
+          <div class="ui card">
+            <div class="ui slide masked reveal image">
+              <img src="img/p1.jpg" class="visible content">
+              <img src="img/p2.jpg" class="hidden content">
+            </div>
+            <div class="content">
+              <a class="header">Bacon Yao</a>
+              <div class="meta">
+                <span class="date">A handsome guy!</span>
+              </div>
+            </div>
+            <div class="extra content">
+              <button id="showmybtn" class="ui grey basic button">
+                Show my detail
+              </button>
+                <!-- show modal -->
+              <div class="ui modal">
+                <i class="close icon"></i>
+                <div class="header">
+                  My Picture
+                </div>
+                <div class="image content">
+                  <div class="ui medium image">
+                    <img src="img/icon.jpg">
+                  </div>
+                  <div class="description">
+                    <div class="ui header">嗨，我是張培堯  :D</div>
+                    <p>很高興你來觀賞我的網站，若你想更認識我的話，可以加我的FB或在網頁的最下端發送訊息給我。</p>
+                    <p>若你只是隨便瀏覽的話，非常的歡迎。</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="https://www.facebook.com/bacon735392" target="_blank">
+                    <button class="ui facebook button">
+                      <i class="facebook icon"></i>
+                      Facebook
+                    </button>
+                  </a>
+                  <a href="https://github.com/baconYao" target="_blank">
+                    <button class="ui github button">
+                      <i class="github icon"></i>
+                      Github
+                    </button>
+                  </a>
+                  <a href="https://www.instagram.com/bacon735392/" target="_blank">
+                    <button class="ui instagram button">
+                      <i class="instagram icon"></i>
+                      Instagram
+                    </button>
+                  </a>
+                  <div class="ui positive right labeled icon button">
+                    Yep, that's me
+                    <i class="thumbs outline up icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- show myskill-->
+        <div id='myskill' class="column">
+          <i class="big configure icon">Language</i>
+          <div style="height:5px;"></div>
+          <div id="p_java" class="ui yellow active progress">
+            <div class="bar" style="width:80%">
+              <div class="progress">80%</div>
+            </div>
+            <div class="label">Java</div>
+          </div>
+          <div id="p_c" class="ui yellow active progress">
+            <div class="bar" style="width:80%">
+              <div class="progress">80%</div>
+            </div>
+            <div class="label">C\C++</div>
+          </div>
+          <div id="p_javascript" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label">Javascript</div>
+          </div>
+          <div id="p_html" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label">Html</div>
+          </div>
+          <div id="p_jsp" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label">JSP</div>
+          </div>
+          <div id="p_markdown" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label">Markdown</div>
+          </div>
+          <div id="p_python" class="ui blue active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label">Python</div>
+          </div>
+          <div id="p_php" class="ui blue active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label">PHP</div>
+          </div>
+        </div>
+        <!-- show software-->
+        <div id='software' class="column">
+          <i class="big file icon">Software</i>
+          <div style="height:5px;"></div>
+          <div id="p_word" class="ui orange active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label">Word</div>
+          </div>
+          <div id="p_ppt" class="ui orange active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label">Power Point</div>
+          </div>
+          <div id="p_powerd" class="ui pink active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label">Power Director</div>
+          </div>
+          <div id="p_imovie" class="ui pink active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label">Imovie</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- footer segment -->
+    <div class="ui inverted vertical footer segment">
+      <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 1</h4>
+            <div class="ui inverted link list">
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link One</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Two</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Three</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 2</h4>
+            <div class="ui inverted link list">
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link One</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Two</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Three</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 3</h4>
+            <div class="ui inverted link list">
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link One</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Two</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Three</a>
+              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Footer Header</h4>
+            <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div class="ui horizontal inverted small divided link list">
+          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Site Map</a>
+          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Contact Us</a>
+          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Terms and Conditions</a>
+          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>
