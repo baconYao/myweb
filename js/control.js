@@ -60,7 +60,7 @@ $(document).ready(function(){
           $(this).removeClass("active teal");
         },
         click: function(){
-          $('html,body').animate({scrollTop:$('#our_stroy').offset().top},600);
+          $('html,body').animate({scrollTop:$('#mystory').offset().top},600);
         }
       });
 
@@ -73,7 +73,7 @@ $(document).ready(function(){
           $(this).removeClass("active yellow");
         },
         click: function(){
-          $('html,body').animate({scrollTop:$('#our_stroy').offset().top},600);
+          $('html,body').animate({scrollTop:$('#contactme').offset().top},600);
         }
       });
 
@@ -105,6 +105,41 @@ $(document).ready(function(){
         $('.ui.modal')
           .modal('show');
       });
+
+      // contact me form control
+      $('.ui.form.segment')
+        .form({
+          on: 'blur',
+          fields: {
+            empty: {
+              identifier  : 'yourname',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your name'
+                }
+              ]
+            },
+            email: {
+              identifier  : 'youremail',
+              rules: [
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            tellempty: {
+              identifier  : 'tellmewhat',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter value in You want to tell me what'
+                }
+              ]
+            }
+          }
+        });
 
 
       //aniview control
