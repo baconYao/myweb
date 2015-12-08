@@ -26,3 +26,7 @@
 	*	self introduction segment
 		*	add FB & IG & Google+ & Git button
 	*	footer segment
+
+### version3
+*	modify
+	*	selfintroduction and contactme backgrond photo
