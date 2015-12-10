@@ -48,7 +48,7 @@ $(document).ready(function(){
           $(this).removeClass("active grey");
         },
         click: function(){
-          $('html,body').animate({scrollTop:$('#bigphoto').offset().top},600);
+          $('html,body').animate({scrollTop:$('#photo').offset().top},600);
         }
       });
       // My story

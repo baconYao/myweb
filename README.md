@@ -30,3 +30,7 @@
 ### version3
 *	modify
 	*	selfintroduction and contactme backgrond photo
+
+### version4
+*	add
+	*	bigphoto
