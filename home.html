@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/jquery-aniview-master/jquery.aniview.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.0/semantic.min.js"></script>
@@ -19,32 +19,28 @@
   <script>
     $(document).ready(function() {
       var source_id = '1ovAu6m7ARmQm7gltrc8Ov1IM-zYi1eIApxP7eo7XeLM';
-      var loadphoto = 0;
-      var photoNum;
+      
       $.ajax({
           url: 'https://spreadsheets.google.com/feeds/list/' + source_id + '/2/public/values?alt=json',
           type: 'GET',
         })
         .done(function(data) {
           console.log("success");
+          
           for (var i = 0 ; i < (data.feed.entry).length ; i++)
           {
-            var idn = data.feed.entry[i]['gsx$id']['$t'];
+            var text = data.feed.entry[i]['gsx$text']['$t'];
             var img = data.feed.entry[i]['gsx$src']['$t'];
+            
 
-            var photo_inner = $.parseHTML("<img id=\"" + idn + "\" src=\" " + img + "\" class=\"bigphoto hide\">");
-            $('#photo').append(photo_inner);
-
-            if(i == 0)
-            {
-              $("#"+i).removeClass('hide');
-            }
+            var photo_inner = $.parseHTML("<li><a class=\"ns-img\" href=\" " + img + "\" ></a><div class=\"caption\">" + text + "</div></li>");
+            $('#inul').append(photo_inner);
+            console.log("3");
           }
-          loadphoto = 1;
-          photoNum = (data.feed.entry).length;
+
         })
         .fail(function() {
-          console.log("error");
+          console.log("Home photo error");
         })
         .always(function() {
           console.log("complete");
@@ -71,32 +67,14 @@
             fail: function(){console.log('no')}
         });
       });     
-      // var setTimer = setInterval(changePhoto,3000);
-      var nowId = 0;
-      // function changePhoto() {
-        // if(loadphoto)
-        // {
-          // console.log(nowId);
-          // $("#" + nowId).fadeOut(3000);
-          // $("#" + (nowId+1)).fadeIn(3000);
-          // nowId++;
-          // if(nowId == photoNum)
-          // {
-          //   nowId = 0;
-          //   console.log("k");
-          //   $("#" + (photoNum-1)).fadeOut(3000);
-          //   $("#" + nowId).fadeIn(3000);
-          // $("#" + nowId).removeClass('hide');
-          
-        // }
-      // }
     });
   </script>
-  
+
+
 </head>
 
 <body>
-  <div class="ui top sidebar massive inverted borderless five item labeled icon compact menu">
+  <div class="ui top sidebar massive inverted borderless four item labeled icon compact menu">
     <a id='mit1' class="item">
       <i class="yellow home icon"></i>
       Home
@@ -104,10 +82,6 @@
     <a id='mit2' class="item">
       <i class="blue user icon"></i>
       Self Introduction
-    </a>
-    <a id='mit3' class="item">
-      <i class="green photo icon"></i>
-      Photo
     </a>
     <a id='mit4' class="item">
       <i class="red video camera icon"></i>
@@ -122,7 +96,9 @@
     <i id='mbutton' class=" large yellow align justify icon"></i>
     <i id='gotopbutton' class=" big pink arrow circle up icon"></i>
     <!-- Home segment -->
-    <div id="home"></div>
+    <div id="home">
+
+    </div>
 
     <!-- self-introduction segment -->
     <div id="selfIntroduction" class="section">
@@ -280,10 +256,6 @@
       </div>
     </div>
     
-    <!--  -->
-    <div id="photo">
-      
-    </div>
 
     <!-- my story segment timeline -->
     <div id="mystory">

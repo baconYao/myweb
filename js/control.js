@@ -39,18 +39,6 @@ $(document).ready(function(){
           $('html,body').animate({scrollTop:$('#selfIntroduction').offset().top},600);
         }
       });
-      // big photo
-      $("#mit3").on({
-        mouseenter: function(){
-          $(this).addClass("active grey");
-        },
-        mouseleave: function(){
-          $(this).removeClass("active grey");
-        },
-        click: function(){
-          $('html,body').animate({scrollTop:$('#photo').offset().top},600);
-        }
-      });
       // My story
       $("#mit4").on({
         mouseenter: function(){
@@ -64,7 +52,7 @@ $(document).ready(function(){
         }
       });
 
-      // our story
+      // contact me
       $("#mit5").on({
         mouseenter: function(){
           $(this).addClass("active yellow");
