@@ -4,6 +4,7 @@
 
 .space {
     height: 15vh;
+    /*160px;*/
 }
 
 #mbutton {
@@ -23,18 +24,12 @@
 }
 
 #home {
-    font: normal 0.9em Arial;
-    margin:0;
-}
-
-.ul.li {
-    padding: 10px 0;
+    
 }
 
 #selfIntroduction {
     background-image: url("../img/introbg.png");
     min-height: 100vh;
-    
 }
 
 #phtot {
@@ -54,5 +49,4 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-
 }

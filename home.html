@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Forever</title>
+  <title>BaconYao</title>
   <link rel="shortcut icon" type="image/x-icon" href="img/icon.jpg">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,33 +11,30 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+  <link rel="stylesheet" href="css/jssorSlider.css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/jquery-aniview-master/jquery.aniview.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.0/semantic.min.js"></script>
+  <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
   <script src="js/control.js"></script>
   <script>
     $(document).ready(function() {
       var source_id = '1ovAu6m7ARmQm7gltrc8Ov1IM-zYi1eIApxP7eo7XeLM';
-      
       $.ajax({
           url: 'https://spreadsheets.google.com/feeds/list/' + source_id + '/2/public/values?alt=json',
+          async: false,
           type: 'GET',
         })
         .done(function(data) {
           console.log("success");
-          
           for (var i = 0 ; i < (data.feed.entry).length ; i++)
           {
-            var text = data.feed.entry[i]['gsx$text']['$t'];
             var img = data.feed.entry[i]['gsx$src']['$t'];
-            
-
-            var photo_inner = $.parseHTML("<li><a class=\"ns-img\" href=\" " + img + "\" ></a><div class=\"caption\">" + text + "</div></li>");
-            $('#inul').append(photo_inner);
-            console.log("3");
+            var photo_inner = $.parseHTML("<div data-p=\"225.00\" style=\"display: none;\"><img data-u=\"image\" src=\"" + img + "\"/></div>");
+            $('#inphoto').append(photo_inner);
           }
-
+          console.log(src);
         })
         .fail(function() {
           console.log("Home photo error");
@@ -69,7 +66,7 @@
       });     
     });
   </script>
-
+  <script src="js/jssorControl.js"></script>
 
 </head>
 
@@ -97,7 +94,23 @@
     <i id='gotopbutton' class=" big pink arrow circle up icon"></i>
     <!-- Home segment -->
     <div id="home">
-
+      <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 600px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+          <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+          <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div id="inphoto" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 600px; overflow: hidden;">
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+          <!-- bullet navigator item prototype -->
+          <div data-u="prototype" style="width:16px;height:16px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+      </div>    
     </div>
 
     <!-- self-introduction segment -->
