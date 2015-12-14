@@ -11,12 +11,11 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
-  <link rel="stylesheet" href="css/jssorSlider.css">
+  <link rel="stylesheet" href="css/ninja/ninja-slider.css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/jquery-aniview-master/jquery.aniview.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.0/semantic.min.js"></script>
-  <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
   <script src="js/control.js"></script>
   <script>
     $(document).ready(function() {
@@ -30,11 +29,11 @@
           console.log("success");
           for (var i = 0 ; i < (data.feed.entry).length ; i++)
           {
+            var text = data.feed.entry[i]['gsx$text']['$t'];
             var img = data.feed.entry[i]['gsx$src']['$t'];
-            var photo_inner = $.parseHTML("<div data-p=\"225.00\" style=\"display: none;\"><img data-u=\"image\" src=\"" + img + "\"/></div>");
+            var photo_inner = $.parseHTML("<li><a class=\"ns-img\" href=\"" + img + "\"/></a><div class=\"caption\">"+ text +"</div></li>");
             $('#inphoto').append(photo_inner);
           }
-          console.log(src);
         })
         .fail(function() {
           console.log("Home photo error");
@@ -48,6 +47,7 @@
         if (text != "") return text;
         else return "none";
       }
+
       $("#contactBtn").click(function() {
         var form = $(".ui.form");  
         var formData = {
@@ -66,7 +66,7 @@
       });     
     });
   </script>
-  <script src="js/jssorControl.js"></script>
+  <script src="js/ninja/ninja-slider.js"></script>
 
 </head>
 
@@ -94,23 +94,16 @@
     <i id='gotopbutton' class=" big pink arrow circle up icon"></i>
     <!-- Home segment -->
     <div id="home">
-      <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 600px; overflow: hidden; visibility: hidden;">
-        <!-- Loading Screen -->
-        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-          <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-          <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-        </div>
-        <div id="inphoto" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 600px; overflow: hidden;">
-        </div>
-        <!-- Bullet Navigator -->
-        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
-          <!-- bullet navigator item prototype -->
-          <div data-u="prototype" style="width:16px;height:16px;"></div>
-        </div>
-        <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
-      </div>    
+      <div id="ninja-slider">
+          <div class="slider-inner">
+              <ul id="inphoto">
+              </ul>
+              <div class="navsWrapper">
+                  <div id="ninja-slider-prev"></div>
+                  <div id="ninja-slider-next"></div>
+              </div>
+          </div>
+      </div>
     </div>
 
     <!-- self-introduction segment -->
@@ -309,21 +302,18 @@
             </div>
           </div>
           <div class="three wide column">
-            <h4 class="ui inverted header">Group 2</h4>
+            <h4 class="ui inverted header">My Country</h4>
             <div class="ui inverted link list">
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link One</a>
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Two</a>
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Three</a>
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Four</a>
+              <i class="massive tw flag"></i>
+              <p>Taiwan</p>
             </div>
           </div>
           <div class="three wide column">
-            <h4 class="ui inverted header">Group 3</h4>
+            <h4 class="ui inverted header">Occupation</h4>
             <div class="ui inverted link list">
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link One</a>
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Two</a>
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Three</a>
-              <a href="http://semantic-ui.com/examples/sticky.html#" class="item">Link Four</a>
+              <p>University Student</p>
+              <a class="item" href="http://www.nchu.edu.tw/index1.php" target="_blnak">My school</a>
+              <a class="item" href="http://nchuit.cc/" target="_blnak">My group</a>
             </div>
           </div>
           <div class="seven wide column">
@@ -333,10 +323,8 @@
         </div>
         <div class="ui inverted divider"></div>
         <div class="ui horizontal inverted small divided link list">
-          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Site Map</a>
-          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Contact Us</a>
-          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Terms and Conditions</a>
-          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Privacy Policy</a>
+          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Designed by PeiYao Chang</a>
+          <a class="item" href="#">Privacy Policy</a>
         </div>
       </div>
     </div>

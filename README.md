@@ -4,7 +4,6 @@
 
 
 
-
 ## Log
 ### version 1
 *	finish 
@@ -34,3 +33,11 @@
 ### version4
 *	add
 	*	bigphoto
+
+### version5
+*	modify
+	*	bigphoto
+		*	use ninja slider
+		*	use google sheet as DB
+	*	footer contain
+	*	index.html contain 	 
