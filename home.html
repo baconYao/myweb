@@ -94,7 +94,7 @@
     <i id='gotopbutton' class=" big pink arrow circle up icon"></i>
     <!-- Home segment -->
     <div id="home">
-      <div id="ninja-slider">
+      <div id="ninja-slider" class="aniview reallyslow" av-animation="rollIn">
           <div class="slider-inner">
               <ul id="inphoto">
               </ul>
@@ -112,7 +112,7 @@
       <div class="ui stackable three column grid container">
         <!-- my photo card -->
         <div id='myphoto' class="column">
-          <div class="ui centered card">
+          <div class="ui centered card" >
             <div class="ui slide masked reveal image">
               <img src="img/p1.jpg" class="visible content">
               <img src="img/p2.jpg" class="hidden content">
@@ -138,9 +138,9 @@
                     <img src="img/icon.jpg">
                   </div>
                   <div class="description">
-                    <div class="ui header">嗨，我是張培堯  :D</div>
-                    <p>很高興你來觀賞我的網站，若你想更認識我的話，可以加我的FB或在網頁的最下端發送訊息給我。</p>
-                    <p>若你只是隨便瀏覽的話，非常的歡迎。</p>
+                    <div class="ui header">Hi,I'm PeiYao Chang :D</div>
+                    <p>My School:<a href="http://www.nchu.edu.tw/index1.php">NCHU</a></p>
+                    <p>My Association:<a href="http://nchuit.cc/">資訊社</a></p>
                   </div>
                 </div>
                 <div class="actions">
@@ -153,7 +153,7 @@
                   <a href="https://plus.google.com/103003372248466066456" target="_blank">
                     <button class="ui google plus button">
                       <i class="google plus icon"></i>
-                      Facebook
+                      Google plus
                     </button>
                   </a>
                   <a href="https://github.com/baconYao" target="_blank">
@@ -264,12 +264,12 @@
     
 
     <!-- my story segment timeline -->
-    <div id="mystory">
+    <div id="mystory" class="aniview reallyslow" av-animation="zoomIn">
       <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1OQc3KzlGW8Quy4vFYRBUGMPfM6IRmkM6ySoBwnU6Bvs&font=Fjalla-Average&lang=zh-cn&initial_zoom=2&height=650' width='100%' height='650' frameborder='0'></iframe>
     </div>
 
     <!-- contact me segment -->
-    <div id="contactme" class="section">
+    <div id="contactme" class="aniview reallyslow section" av-animation="slideInRight">
       <div class="space"></div>
       <div class="ui one column centered grid container">
         <form class="ui large form segment">
@@ -298,22 +298,24 @@
           <div class="three wide column">
             <h4 class="ui inverted header">QR code</h4>
             <div class="ui inverted link list">
-              
+              <img src="img/QR.png" alt="QR CODE">
             </div>
           </div>
           <div class="three wide column">
             <h4 class="ui inverted header">My Country</h4>
             <div class="ui inverted link list">
-              <i class="massive tw flag"></i>
+              <!-- <i class="tw flag"></i> -->
+              <img src="img/flag.png" alt="Taiwan" style="width:132px;">
               <p>Taiwan</p>
             </div>
           </div>
           <div class="three wide column">
-            <h4 class="ui inverted header">Occupation</h4>
+            <h4 class="ui inverted header">Socially</h4>
             <div class="ui inverted link list">
-              <p>University Student</p>
-              <a class="item" href="http://www.nchu.edu.tw/index1.php" target="_blnak">My school</a>
-              <a class="item" href="http://nchuit.cc/" target="_blnak">My group</a>
+              <a class="item" href="https://www.facebook.com/bacon735392" target="_blank"><i class="big facebook square  icon"></i></a>
+              <a class="item" href="https://www.instagram.com/bacon735392/" target="_blank"><i class="big instagram icon"></i></a>
+              <a class="item" href="https://plus.google.com/103003372248466066456" target="_blank"><i class="big google plus square icon"></i></a>
+              <a class="item" href="https://github.com/baconYao" target="_blank"><i class="big github square icon"></i></a>
             </div>
           </div>
           <div class="seven wide column">

@@ -40,4 +40,7 @@
 		*	use ninja slider
 		*	use google sheet as DB
 	*	footer contain
-	*	index.html contain 	 
+	*	index.html contain
+
+### version6
+*	finish 	 
