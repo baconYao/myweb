@@ -24,12 +24,12 @@
 }
 
 #home {
-    margin-bottom: -20px;
     margin-top: -20px;
 }
 
 #selfIntroduction {
-    background-image: url("../img/introbg.png");
+    margin-top: -20px;
+    background-image: url("../img/introbg1.png");
     min-height: 100vh;
 }
 
