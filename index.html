@@ -1,201 +1,671 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>BaconYao</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/icon.jpg">
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Bacon Yao's Website</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+  <link rel="stylesheet" href="css/ninja/ninja-slider.css">
 
-<style type="text/css" media="all">
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
-
-#text-shadow-box {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #444;
-    font-family: Helvetica, Arial, sans-serif;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-user-select: none;
-}
-
-    #text-shadow-box #tsb-text,
-    #text-shadow-box #tsb-link {
-        position: absolute;
-        top: 40%;
-        left: 0;
-        width: 100%;
-        height: 1em;
-        margin: -0.77em 0 0 0;
-        font-size: 90px;
-        line-height: 1em;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    #text-shadow-box #tsb-text {
-        font-size: 100px;
-        color: transparent;
-        text-shadow: black 0px -45.2px 19px; 
-    }
-
-        #text-shadow-box #tsb-link a {
-            color: #999;
-            text-decoration: none;
-        }
-
-    #text-shadow-box #tsb-box,
-    #text-shadow-box #tsb-wall {
-        position: absolute;
-        top: 40%;
-        left: 0;
-        width: 100%;
-        height: 60%;
-    }
-
-    #text-shadow-box #tsb-box {
-        -webkit-box-shadow: black 0px -45.2px 39px;
-        -moz-box-shadow: black 0px -45.2px 39px;
-        box-shadow: 0px -45.2px 39px #000;
-    }
-
-    #text-shadow-box #tsb-wall {
-        background: #999;
-    }
-
-        #text-shadow-box #tsb-wall p {
-            position: relative;
-            font-size: 18px;
-            line-height: 1.5em;
-            text-align: justify;
-            color: #222;
-            width: 550px;
-            margin: 1.5em auto;
-            cursor: default;
-        }
-
-            #text-shadow-box #tsb-wall p a {
-                color: #fff;
-            }
-
-                #text-shadow-box #tsb-wall p a:hover {
-                    text-decoration: none;
-                    color: #000;
-                    background: #fff;
-                }
-
-    #tsb-spot {
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        pointer-events: none;
-        background: -webkit-gradient(radial, center center, 0, center center, 450, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
-        background: -moz-radial-gradient(center 45deg, circle closest-side, transparent 0, black 450px);
-        background: -o-radial-gradient(center, circle closest-side, transparent 0, black 450px);
-    }
-</style>
-
-<!--[if IE]>
-<style type="text/css">
-/* Sadly no IE9 support for pointer-events: none; nor CSS2 text-shadow */
-#tsb-spot {
-    display: none;
-}
-#tsb-ie {
-    position: absolute;
-    top: -90%;
-    left: -50%;
-    width: 200%;
-    height: 334%;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPHN0b3Agb2Zmc2V0PSI3NCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-}
-</style>
-<![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/jquery-aniview-master/jquery.aniview.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.0/semantic.min.js"></script>
+  <script src="js/control.js"></script>
 
 </head>
+
 <body>
-    
-<div id="text-shadow-box">
-    <div id="tsb-box"></div>
-    <p id="tsb-text">Bacon Yao</p>
-    <p id="tsb-link"><a href="home.html">Bacon Yao</a></p>
-    <div id="tsb-wall">
-        <div id="tsb-ie"></div>
-        <p>Welcome to Baconyao's persional website.On my website,you can visit any place.If you want to contact me,you can use FB or Ccontact block to connect me.Thank you.
-            <br />
-            <a href="home.html">Click me enter the site.</a>
-        </p>
+  <div class="ui top sidebar massive inverted borderless three item labeled icon compact menu">
+    <a id='mit1' class="item">
+      <i class="yellow home icon"></i>
+      Home
+    </a>
+    <a id='mit2' class="item">
+      <i class="blue user icon"></i>
+      Self Introduction
+    </a>
+    <a id='mit5' class="item">
+      <i class="brown folder icon"></i>
+      Projects
+    </a>
+  </div>
+  <div class="pusher">
+    <i id='mbutton' class=" large yellow align justify icon"></i>
+    <i id='gotopbutton' class=" big pink arrow circle up icon"></i>
+    <!-- Home segment -->
+    <div id="home">
+
     </div>
-    <div id="tsb-spot"></div>
-</div>
 
-<script type="text/javascript" language="javascript" charset="utf-8">
-/**
- * Zachary Johnson
- * http://www.zachstronaut.com
- * I place the following code in the public domain.
- *
- * Fork it on GitHub: https://github.com/zachstronaut/cispa-blackout
- */
- 
-var text = null,
-    spot = null,
-    box = null,
-    boxProperty = '';
+    <!-- self-introduction segment -->
+    <div id="selfIntroduction" class="section">
+      <div class="space"></div>
+      <div class="ui stackable three column grid container">
+        <!-- my photo card -->
+        <div id='myphoto' class="column">
+          <div class="ui centered card" style="background-color: #f9dc9d">
+            <div class="ui slide masked reveal image">
+              <img src="img/p1.jpg" class="visible content">
+              <img src="img/p2.jpg" class="hidden content">
+            </div>
+            <div class="content">
+              <a class="header">Pei-Yao Chang</a>
+            </div>
+            <div class="extra content">
+              <button id="showmybtn" class="ui blue button" >
+                Self Introduction
+              </button>
+                <!-- show modal -->
+              <div class="ui modal">
+                <i class="close icon"></i>
+                <div class="header">
+                  My Self Introduction
+                </div>
+                <div class="image scrolling content">
+                  <div class="ui medium image">
+                    <img src="img/icon.jpg">
+                  </div>
+                  <div class="description">
+                    <div class="ui middle aligned animated list">
+                      <div class="item">
+                        <i class="large red book icon"></i>
+                        <div class="content">
+                          <div class="ui large red header">大學經歷</div>
+                          <div class="list">
+                            <div class="item">
+                              <i class="large green book icon"></i>
+                              <div class="content">
+                                <div class="ui green header">102 ~ 103學年度，擔任系學會長</div>
+                                  <div class="list">
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">舉辦中興資工歌唱大賽</div>
+                                      </div>
+                                    </div>
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">・舉辦耶誕晚會</div>
+                                      </div>
+                                    </div>
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">・擔任迎新幹部</div>
+                                      </div>
+                                    </div>
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">・負責拍攝及策劃資工招生短片</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="large green book icon"></i>
+                              <div class="content">
+                                <div class="ui green header">103 ~ 104學年度，擔任系籃隊長</div>
+                                  <div class="list">
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">帶領系隊參與大資盃、中資杯等全國資訊相關系所的籃球比賽</div>
+                                      </div>
+                                    </div>
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">舉辦系上小資杯</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="large green book icon"></i>
+                              <div class="content">
+                                <div class="ui green header">103 ~ 104學年度，擔任學生會資訊部部長</div>
+                                  <div class="list">
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">開發學生會新版官方網頁</div>
+                                      </div>
+                                    </div>
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">管理學生會server</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="large green book icon"></i>
+                              <div class="content">
+                                <div class="ui green header">104 ~ 105學年度，擔任資訊社副社長</div>
+                                  <div class="list">
+                                    <div class="item">
+                                      <i class="book icon"></i>
+                                      <div class="content">
+                                        <div class="header">擔任教學以及助教</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
 
-init();
+                        </div>
+                      </div>
 
-function init() {
-    text = document.getElementById('tsb-text');
-    spot = document.getElementById('tsb-spot');
-    box = document.getElementById('tsb-box');
-    
-    if (typeof box.style.webkitBoxShadow == 'string') {
-        boxProperty = 'webkitBoxShadow';
-    } else if (typeof box.style.MozBoxShadow == 'string') {
-        boxProperty = 'MozBoxShadow';
-    } else if (typeof box.style.boxShadow == 'string') {
-        boxProperty = 'boxShadow';
-    }
+                      <div class="item">
+                        <i class="large red travel icon"></i>
+                        <div class="content">
+                          <div class="ui large red header">工作經驗</div>
+                          <div class="list">
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">101/7~8月，早餐店工讀</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">101/11月~102/6月，中興大學圖書館資訊部工讀</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">101/12月~102/8月，台中大碩研究所補習班工讀</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">105/9~106/1月，擔任組合語言助教</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">106/2~6月，擔任作業系統以及實驗、網際網路協定TCP/IP助教</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">106/2~6月，中興資工系辦工讀</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="travel icon"></i>
+                              <div class="content">
+                                <div class="header">106/7~，中興資工行政助教</div>
+                              </div>
+                            </div>
+                          </div>
 
-    if (text && spot && box) {
-        document.getElementById('text-shadow-box').onmousemove = onMouseMove;
-        document.getElementById('text-shadow-box').ontouchmove = function (e) {e.preventDefault(); e.stopPropagation(); onMouseMove({clientX: e.touches[0].clientX, clientY: e.touches[0].clientY});};
-    }
-}
+                        </div>
+                      </div>
 
-function onMouseMove(e) {
-    if (typeof e === 'undefined' || typeof e.clientX === 'undefined') {
-        return;
-    }
-    
-    var xm = (e.clientX - Math.floor(window.innerWidth / 2)) * 0.4,
-        ym = (e.clientY - Math.floor(window.innerHeight / 3)) * 0.4,
-        d = Math.round(Math.sqrt(xm*xm + ym*ym) / 5);
-    
-    text.style.textShadow = -xm + 'px ' + -ym + 'px ' + (d + 10) + 'px black';
-    
-    if (boxProperty) {
-        box.style[boxProperty] = '0 ' + -ym + 'px ' + (d + 30) + 'px black';
-    }
-    
-    xm = e.clientX - Math.floor(window.innerWidth / 2);
-    ym = e.clientY - Math.floor(window.innerHeight / 2);
-    spot.style.backgroundPosition = xm + 'px ' + ym + 'px';
-}
-</script>
+                      <div class="item">
+                        <i class="large red talk outline icon"></i>
+                        <div class="content">
+                          <div class="ui large red header">英語能力</div>
+                          <div class="list">
+                            <div class="item">
+                              <i class="talk outline icon"></i>
+                              <div class="content">
+                                <div class="header">多益測驗645分</div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <i class="large red code icon"></i>
+                        <div class="content">
+                          <div class="ui large red header">程式能力</div>
+                          <div class="list">
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">熟悉 C、JavaScript</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">基本運用 Java、Python、PHP、SQL、Shell Script</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">其餘能力 Docker、Git、Webpack、Gulp</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">前端框架 Vue、React-Native</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">後端框架 NodeJS + Express</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">使用過的資料庫 MySQL、MongoDB</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="code icon"></i>
+                              <div class="content">
+                                <div class="header">使用過的作業系統 Windows、Ubuntu、CentOS</div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+
+
+                      <div class="item">
+                        <i class="large red paint brush icon"></i>
+                        <div class="content">
+                          <div class="ui large red header">文書軟體</div>
+                          <div class="list">
+                            <div class="item">
+                              <i class="paint brush icon"></i>
+                              <div class="content">
+                                <div class="header">Word: 基本運用</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="paint brush icon"></i>
+                              <div class="content">
+                                <div class="header">Excel: 基本運用</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="paint brush icon"></i>
+                              <div class="content">
+                                <div class="header">PowerPoint: 基本運用</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <i class="paint brush icon"></i>
+                              <div class="content">
+                                <div class="header">Markdown: 較為精通</div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <i class="large red student  icon"></i>
+                        <div class="content">
+                          <div class="ui large red header">碩士論文題目 </div>
+                          <div class="list">
+                            <div class="item">
+                              <i class="large green student  icon"></i>
+                              <div class="content">
+                                <div class="ui green header">「應用於雲端環境之多階層儲存裝置的效能隔離研究」</div>
+                                  <!-- <div class="list">
+                                    <div class="item">
+                                      <i class="student  icon"></i>
+                                      <div class="content">
+                                        <div class="header">舉辦中興資工歌唱大賽</div>
+                                      </div>
+                                    </div>
+                                  </div> -->
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="https://www.facebook.com/bacon735392" target="_blank">
+                    <button class="ui facebook button">
+                      <i class="facebook icon"></i>
+                      Facebook
+                    </button>
+                  </a>
+                  <a href="https://github.com/baconYao" target="_blank">
+                    <button class="ui github button">
+                      <i class="github icon"></i>
+                      Github
+                    </button>
+                  </a>
+                  <div class="ui positive right labeled icon button">
+                    Yep, that's me
+                    <i class="thumbs outline up icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- show myskill-->
+        <div id='myskill' class="column">
+          <i class="teal big configure icon">Language</i>
+          <div style="height:5px;"></div>
+          <div id="p_java" class="ui yellow active progress">
+            <div class="bar" style="width:80%">
+              <div class="progress">80%</div>
+            </div>
+            <div class="label" style="color:red;">JavaScript</div>
+          </div>
+          <div id="p_c" class="ui yellow active progress">
+            <div class="bar" style="width:80%">
+              <div class="progress">80%</div>
+            </div>
+            <div class="label" style="color:red;">C</div>
+          </div>
+          <div id="p_javascript" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label" style="color:red;">Java</div>
+          </div>
+          <div id="p_html" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label" style="color:red;">Html</div>
+          </div>
+          <div id="p_jsp" class="ui olive active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label" style="color:red;">CSS</div>
+          </div>
+
+          <div id="p_python" class="ui blue active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label" style="color:red;">Python</div>
+          </div>
+          <div id="p_php" class="ui blue active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label" style="color:red;">PHP</div>
+          </div>
+        </div>
+        <!-- show software-->
+        <div id='software' class="column">
+          <i class="teal big file icon">Software</i>
+          <div style="height:5px;"></div>
+          <div id="p_word" class="ui orange active progress">
+            <div class="bar" style="width:70%">
+              <div class="progress">70%</div>
+            </div>
+            <div class="label" style="color:red;">Markdown</div>
+          </div>
+          <div id="p_word" class="ui pink active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label" style="color:red;">Word</div>
+          </div>
+          <div id="p_ppt" class="ui pink active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label" style="color:red;">Power Point</div>
+          </div>
+          <div id="p_imovie" class="ui pink active progress">
+            <div class="bar" style="width:60%">
+              <div class="progress">60%</div>
+            </div>
+            <div class="label" style="color:red;">Excel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- projects segment -->
+    <div id="projectField" class="aniview reallyslow section" av-animation="slideInRight">
+      <div class="space"></div>
+      <div class="ui stackable grid">
+        <div class="seven column row">
+          <div class="computer only column">
+          </div>
+          <div class="column">
+            <div class="ui centered card">
+              <div class="image">
+                <img src="http://images.gamme.com.tw/news2/2013/19/65/p6CVo6Cck6eW.jpg">
+              </div>
+              <div class="content">
+                <a class="header">My Web</a>
+                <div class="description">
+                  個人網頁
+                </div>
+              </div>
+              <div class="extra content">
+                <span>
+                  <a class="ui blue button" href="https://github.com/baconYao/myweb" target="_blank">Source Code</a>
+                </span>
+                <span class="right floated">
+                  <div class="ui purple button">Detail</div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="computer only column">
+          </div>
+          <div class="column">
+            <div class="column">
+              <div class="ui centered card">
+                <div class="image">
+                  <img src="http://images.gamme.com.tw/news2/2013/19/65/p6CVo6Cck6eW.jpg">
+                </div>
+                <div class="content">
+                  <a class="header">Shopping Cart</a>
+                  <div class="description">
+                    使用NodeJS建立的購物車系統
+                  </div>
+                </div>
+                <div class="extra content">
+                  <span>
+                    <a class="ui blue button" href="https://github.com/baconYao/node-shopping-cart" target="_blank">Source Code</a>
+                  </span>
+                  <span class="right floated">
+                    <div class="ui purple button">Detail</div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="computer only column">
+          </div>
+          <div class="column">
+            <div class="column">
+              <div class="ui centered card">
+                <div class="image">
+                  <img src="http://images.gamme.com.tw/news2/2013/19/65/p6CVo6Cck6eW.jpg">
+                </div>
+                <div class="content">
+                  <a class="header">Chat Room</a>
+                  <div class="description">
+                    用NodeJS及Socket.io建立的聊天室
+                  </div>
+                </div>
+                <div class="extra content">
+                  <span>
+                    <a class="ui blue button" href="https://github.com/baconYao/node-chat-app" target="_blank">Source Code</a>
+                  </span>
+                  <span class="right floated">
+                    <div class="ui purple button">Detail</div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="computer only column">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ui stackable grid">
+        <div class="seven column row">
+          <div class="computer only column">
+          </div>
+          <div class="column">
+            <div class="ui centered card">
+              <div class="image">
+                <img src="http://images.gamme.com.tw/news2/2013/19/65/p6CVo6Cck6eW.jpg">
+              </div>
+              <div class="content">
+                <a class="header">藝文活動APP</a>
+                <div class="description">
+                  大學專題
+                </div>
+              </div>
+              <div class="extra content">
+                <span>
+                  <a class="ui blue button">Source Code</a>
+                </span>
+                <span class="right floated">
+                  <div class="ui purple button">Detail</div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="computer only column">
+          </div>
+          <div class="column">
+            <div class="column">
+              <div class="ui centered card">
+                <div class="image">
+                  <img src="http://images.gamme.com.tw/news2/2013/19/65/p6CVo6Cck6eW.jpg">
+                </div>
+                <div class="content">
+                  <a class="header">TCP/IP</a>
+                  <div class="description">
+                    研究所網際網路課程實作
+                  </div>
+                </div>
+                <div class="extra content">
+                  <span>
+                    <a class="ui blue button" href="https://github.com/baconYao/myweb" target="_blank">Source Code</a>
+                  </span>
+                  <span class="right floated">
+                    <div class="ui purple button">Detail</div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="computer only column">
+          </div>
+          <div class="column">
+            <div class="column">
+              <div class="ui centered card">
+                <div class="image">
+                  <img src="http://images.gamme.com.tw/news2/2013/19/65/p6CVo6Cck6eW.jpg">
+                </div>
+                <div class="content">
+                  <a class="header">自我練習</a>
+                  <div class="description">
+                    實作資料結構及演算法
+                  </div>
+                </div>
+                <div class="extra content">
+                  <span>
+                    <a class="ui blue button" href="https://github.com/baconYao/myLibrary" target="_blank">Source Code</a>
+                  </span>
+                  <span class="right floated">
+                    <div class="ui purple button">Detail</div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="computer only column">
+          </div>
+        </div>
+
+      </div>
+      <div class="space"></div>
+
+    </div>
+
+    <!-- footer segment -->
+    <div class="ui green inverted vertical footer segment">
+      <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">QR code</h4>
+            <div class="ui inverted link list">
+              <img src="img/QR.png" alt="QR CODE">
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">My Country</h4>
+            <div class="ui inverted link list">
+              <!-- <i class="tw flag"></i> -->
+              <img src="img/flag.png" alt="Taiwan" style="width:132px;">
+              <p>Taiwan</p>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Socially</h4>
+            <div class="ui inverted link list">
+              <a class="item" href="https://www.facebook.com/bacon735392" target="_blank"><i class="big facebook square  icon"></i></a>
+              <a class="item" href="https://www.instagram.com/bacon735392/" target="_blank"><i class="big instagram icon"></i></a>
+              <a class="item" href="https://plus.google.com/103003372248466066456" target="_blank"><i class="big google plus square icon"></i></a>
+              <a class="item" href="https://github.com/baconYao" target="_blank"><i class="big github square icon"></i></a>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Thanks for your watching</h4>
+            <p>If you have any question,you can use contact me segment send message to me.In addition,you can be my friend through Facebook.</p>
+          </div>
+        </div>
+        <div class="ui inverted divider"></div>
+        <div class="ui horizontal inverted small divided link list">
+          <a class="item" href="http://semantic-ui.com/examples/sticky.html#">Designed by PeiYao Chang</a>
+          <a class="item" href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>

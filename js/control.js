@@ -39,20 +39,8 @@ $(document).ready(function(){
       $('html,body').animate({scrollTop:$('#selfIntroduction').offset().top},600);
     }
   });
-  // My story
-  $("#mit4").on({
-    mouseenter: function(){
-      $(this).addClass("active teal");
-    },
-    mouseleave: function(){
-      $(this).removeClass("active teal");
-    },
-    click: function(){
-      $('html,body').animate({scrollTop:$('#mystory').offset().top},600);
-    }
-  });
 
-  // contact me
+  // projects
   $("#mit5").on({
     mouseenter: function(){
       $(this).addClass("active yellow");
@@ -61,7 +49,7 @@ $(document).ready(function(){
       $(this).removeClass("active yellow");
     },
     click: function(){
-      $('html,body').animate({scrollTop:$('#contactme').offset().top},600);
+      $('html,body').animate({scrollTop:$('#projectField').offset().top},600);
     }
   });
 
@@ -78,56 +66,11 @@ $(document).ready(function(){
     }
   });
 
-  //control heart icon 
-  $("#heart_icon").on({
-    mouseenter: function(){
-      $(this).addClass('animated rubberBand');
-    },
-    mouseleave: function(){
-      $(this).removeClass('animated rubberBand');
-    },
-  });
-
   // show the modal
   $("#showmybtn").click(function(){
     $('.ui.modal')
       .modal('show');
   });
-
-  // contact me form control
-  $('.ui.form.segment')
-    .form({
-      on: 'blur',
-      fields: {
-        empty: {
-          identifier  : 'yourname',
-          rules: [
-            {
-              type   : 'empty',
-              prompt : 'Please enter your name'
-            }
-          ]
-        },
-        email: {
-          identifier  : 'youremail',
-          rules: [
-            {
-              type   : 'email',
-              prompt : 'Please enter a valid e-mail'
-            }
-          ]
-        },
-        tellempty: {
-          identifier  : 'tellmewhat',
-          rules: [
-            {
-              type   : 'empty',
-              prompt : 'Please enter value in You want to tell me what'
-            }
-          ]
-        }
-      }
-    });
 
 
   //aniview control
