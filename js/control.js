@@ -25,6 +25,9 @@ $(document).ready(function(){
     },
     click: function(){
       $('html,body').animate({scrollTop:$('#home').offset().top},600);
+      $('#headerImage')
+        .transition('horizontal flip', '500ms')
+        .transition('horizontal flip', '500ms');
     }
   });
   // self introduction
@@ -79,6 +82,10 @@ $(document).ready(function(){
       scrollPollInterval: 20
   }
   $('.aniview').AniView(options);
+
+  $('#headerImage')
+    .transition('horizontal flip', '500ms')
+    .transition('horizontal flip', '500ms');
 
 
 });

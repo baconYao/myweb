@@ -25,12 +25,18 @@
 
 #home {
     margin-top: -20px;
+    min-height: 80vh;
+    background-image: url("../img/header.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #selfIntroduction {
     margin-top: -20px;
     background-image: url("../img/introbg1.png");
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 
@@ -41,4 +47,12 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.ui.opaci1.segment {
+    background: rgba(0, 37, 77, 0.31);
+}
+
+.ui.opaci2.segment {
+    background: rgba(232, 236, 241, 0.31);
 }
