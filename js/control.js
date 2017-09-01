@@ -87,5 +87,9 @@ $(document).ready(function(){
     .transition('horizontal flip', '500ms')
     .transition('horizontal flip', '500ms');
 
+  $('.card.dimm .image').dimmer({
+    on: 'hover'
+  });
+
 
 });

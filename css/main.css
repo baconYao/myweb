@@ -56,3 +56,7 @@
 .ui.opaci2.segment {
     background: rgba(232, 236, 241, 0.31);
 }
+
+.project_image {
+    height: 200px !important;
+}
